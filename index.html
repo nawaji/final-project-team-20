@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+    <html>
+        <head>
+            <link rel = "stylesheet" href="style.css">
+            <meta charset="utf-8">
+            <title>Tic Tac Toe</title>
+        </head>
+    </html>
+
+    <body>
+
+        <header>
+            <a href="#"><h1 class = "site_title">Tic Tac Toe</h1></a>
+        </header>
+
+        <!--This is the game board. Each button represents a square on a tic-tac-toe board.-->
+        <main class = "board_container">
+            <div class = "board">
+                <button id = "grid1" class = "square red">X</button>
+                <button id = "grid2" class = "square"></button>
+                <button id = "grid3" class = "square blue">O</button>
+                <button id = "grid4" class = "square"></button>
+                <button id = "grid5" class = "square blue">O</button>
+                <button id = "grid6" class = "square"></button>
+                <button id = "grid7" class = "square blue">O</button>
+                <button id = "grid8" class = "square"></button>
+                <button id = "grid9" class = "square red">X</button>
+            </div>
+        </main>
+
+        <div class = "scorebar">
+            <div class = "player_score_container">
+
+                <h2 class = "score_header">Current Score</h2>
+
+                <ul>
+                    <li> YOU: 3 </li>
+                    <li> CPU: 2 </li>
+                </ul>
+            </div>
+
+            <div class = "leaderboard_container">
+
+                <h2 class = "score_header">Leaderboards</h2>
+
+                <ol class = "rankings">
+                    <!--NOTE: These are hardcoded test values. They should probably be changed -->
+                    <li>Jonathan: 77</li>
+                    <li>Hyunjae: 76</li>
+                    <li>Ansen: 30</li>
+                    <li>Hiroto: 25</li>
+                </ol>
+            </div>
+        </div>
+
+    </body>
