@@ -9,6 +9,7 @@
 
     <body>
 
+        
         <header>
             <a href="#"><h1 class = "site_title">Tic Tac Toe</h1></a>
         </header>
@@ -33,7 +34,7 @@
 
                 <h2 class = "score_header">Current Score</h2>
 
-                <ul>
+                <ul id = "player_score_list">
                     <li> YOU: 3 </li>
                     <li> CPU: 2 </li>
                 </ul>
@@ -43,13 +44,35 @@
 
                 <h2 class = "score_header">Leaderboards</h2>
 
-                <ol class = "rankings">
+                <ol id = "leaderboard_list">
                     <!--NOTE: These are hardcoded test values. They should probably be changed -->
                     <li>Jonathan: 77</li>
                     <li>Hyunjae: 76</li>
                     <li>Ansen: 30</li>
                     <li>Hiroto: 25</li>
                 </ol>
+            </div>
+        </div>
+
+        <div id = "modal_backdrop" class="hidden"></div>
+        <div id = "you_won_modal" class="hidden">
+            <div class = "modal_dialogue">
+
+                <div class = "modal_header">
+                    <h3>You have won! Please enter your name.</h3>
+                </div>
+
+                <div class = "modal_body">
+                    <div class="name_input_element">
+                        <label for="user_name_input">Name:</label>
+                        <input type="text" id="username">
+                    </div>
+                </div>
+
+                <div class = "modal_footer">
+                    <button id="name_button">Enter</button>
+                </div>
+                
             </div>
         </div>
 

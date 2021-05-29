@@ -1,6 +1,13 @@
+html {
+
+    height: 100%;
+
+}
+
 body{
 
     font-family: Helvetica, sans-serif;
+    min-height: 100%;
     margin: 0;
     background-color: #eee
 
@@ -32,14 +39,13 @@ header a{
 .board_container {
 
     position: absolute;
-    width: 80%;
     height: 100%;
+    width: 80%;
     float: left;
     margin-right: 20%;
 }
 
 .board {
-
     position: relative;
     width: 500px;
     height: 500px;
@@ -47,7 +53,6 @@ header a{
     top: 10%;
     display: flex;
     flex-wrap: wrap;
-
 }
 
 .square {
@@ -62,6 +67,12 @@ header a{
     box-sizing: border-box;
     cursor: pointer;
     font-size: 750%;
+
+}
+
+.square:hover {
+
+    background-color: gainsboro;
 
 }
 
@@ -134,8 +145,8 @@ header a{
 .scorebar {
 
     position: absolute;
-    height: 100%;
     width: 20%;
+    min-height: 100%;
     right: 0;
     background-color: green;
     vertical-align: top;
@@ -154,5 +165,119 @@ header a{
 .score_header {
 
     text-align: center;
+
+}
+
+/* Code for the "You Won" dialog box */
+
+.hidden {
+
+    display: none;
+
+}
+
+#modal_backdrop {
+
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background-color: rgba(0,0,0,0.85);
+
+}
+
+#you_won_modal{
+
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1010;
+
+}
+
+.modal_dialogue {
+
+    margin: 200px auto;
+    z-index: -1;
+    width: auto;
+    max-width: 500px;
+    min-width: 350px;
+    min-height: 200px;
+    background-color: green;
+    border-radius: 20px;
+
+}
+
+.modal_header {
+
+    margin: auto;
+    text-align: center;
+
+}
+
+.modal_body {
+
+    padding: 20px;
+
+}
+
+.name_input_element {
+
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+    margin: 5px 0;
+
+}
+
+.name_input_element label {
+
+    font-weight: 600;
+    flex: 1 75px;
+
+}
+
+.name_input_element input,
+.name_input_element textarea {
+
+    flex: 6 200px;
+    padding: 8px;
+    font-size: 20px;
+    border: 1px solid black;
+
+}
+
+.name_input_area textarea {
+
+    min-height: 64px;
+
+}
+
+.modal_footer {
+
+    position: relative;
+    background-color: pink;
+
+}
+
+#name_button {
+
+    position: absolute;
+    right: 40px;
+    border: 1px solid black;
+    padding: 15px 32px;
+    border-radius: 10px;
+    background-color: lightblue;
+
+}
+
+#name_button:hover {
+
+    cursor: pointer;
+    background-color: lightskyblue;
 
 }
