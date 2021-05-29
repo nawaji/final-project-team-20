@@ -17,8 +17,11 @@ body{
 
 .site_title {
 
+    font-family: papyrus;
+    font-weight: 900;
+    font-size: 50pt;
     position: relative;
-    background-color: blue;
+    height: 80px;
     margin: 0;
     padding: 10px 20px;
     text-align: center;
@@ -148,7 +151,6 @@ header a{
     width: 20%;
     min-height: 100%;
     right: 0;
-    background-color: green;
     vertical-align: top;
     float: left;
     margin: 0;
@@ -157,7 +159,7 @@ header a{
 
 .player_score_container {
 
-    background-color: lightblue;
+    margin: 10px;
     position: relative;
 
 }
@@ -166,6 +168,28 @@ header a{
 
     text-align: center;
 
+}
+
+.score_body {
+
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    padding: 0 20px;
+}
+
+.player_score {
+
+    color: royalblue;
+    font-size: 20pt;
+
+}
+
+
+.cpu_score {
+
+    color: #A62700;
+    font-size: 20pt;
 }
 
 /* Code for the "You Won" dialog box */
@@ -207,7 +231,6 @@ header a{
     max-width: 500px;
     min-width: 350px;
     min-height: 200px;
-    background-color: green;
     border-radius: 20px;
 
 }
@@ -260,7 +283,6 @@ header a{
 .modal_footer {
 
     position: relative;
-    background-color: pink;
 
 }
 
