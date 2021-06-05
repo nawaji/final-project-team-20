@@ -81,7 +81,7 @@ header a{
 
 .red {
 
-    color: #A62700;
+    color: #dd3400;
 
 }
 
@@ -231,7 +231,6 @@ header a{
     max-width: 500px;
     min-width: 350px;
     min-height: 200px;
-    background-color: #ffffff;
     border-radius: 20px;
 
 }
@@ -303,4 +302,10 @@ header a{
     cursor: pointer;
     background-color: lightskyblue;
 
+}
+
+#leaderboard_list{
+    position: relative;
+    text-indent: 5px;
+    line-height: 30px;
 }
