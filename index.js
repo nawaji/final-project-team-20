@@ -1,13 +1,72 @@
+//handles the closing of the modal and retrives name from the input, then
+//sends it to updateLeaderboards() function
 function handleNameSubmit() {
-	var lead_list = document.getElementById("leaderboard_list")
-	var new_name = document.createElement("li")
-	var input = document.getElementById("username")
+	var lead_list = document.getElementById("leaderboard_list");
+	var input = document.getElementById("username");
 	
-	new_name.textContent = input.value
-	lead_list.appendChild(new_name)
+	if (input.value != "") {
+		handleLeaderboards(input.value);
+		input.value = "";
+		hideModal();
+	} else {
+		alert("Please input a name!")
+	}
+}
 
-	input.value = ""
-	hideModal()
+//checks for duplicate name, updates if needed, otherwise creates new entry if new name
+function handleLeaderboards(data) {
+	var separator = ": ";
+	var parent = document.getElementById("leaderboard_list")
+	var lead_list = parent.getElementsByTagName("li")
+
+	var i = 0;
+	var duplicate = false;
+
+	//check each entry in the leaderboards for duplicate name
+	for (item of lead_list) {
+		let str = item.textContent
+		var name = str.split(separator)[0];
+		var score = str.split(separator)[1];
+		//console.log("== Person & Score:", name, score);
+
+		if (data == name) {
+			item.parentNode.removeChild(item);
+			duplicate = true;
+			console.log("== Duplicate found!");
+			score++;
+			modifyLeaderboards(name, score, i);
+			break;
+		}
+
+		i++;
+	}
+
+	//create new entry at the bottom of leaderboards
+	if (!duplicate) {
+		modifyLeaderboards(data, 1, -1);
+	}
+}
+
+//handles inserting new element into the DOM, whether its at a certain index or end of list
+function modifyLeaderboards(name, score, index) {
+	var lead_list = document.getElementById("leaderboard_list");
+	var new_str = name + ": " + score;
+
+	//create a new node to be inserted into the DOM
+	var new_ref = document.createElement("li")
+	var temp_content = document.createTextNode(new_str)
+	new_ref.appendChild(temp_content)
+	console.log("== Node:", new_ref)
+
+	//if index < 0, append to end of list, otherwise insert before index
+	//and remove the original DOM element
+	if (index < 0) {
+		lead_list.appendChild(new_ref);
+
+	} else {
+		lead_list.insertBefore(new_ref, lead_list_test[index]);
+
+	}
 }
 
 function showModal() {
@@ -27,14 +86,17 @@ function hideModal() {
 }
 
 window.addEventListener("DOMContentLoaded", function() {
-	var temp_win_button = document.getElementById("grid5")
+
+	//temporary win condition by clicking any space on the board
+	var temp_win_button = document.getElementsByClassName("board")[0];
 	if (temp_win_button) {
-		temp_win_button.addEventListener("click", showModal)
+		temp_win_button.addEventListener("click", showModal);
 	}
 
-	var name_button = document.getElementById("name_button")
+	//handles username input in the win modal
+	var name_button = document.getElementById("name_button");
 	if (name_button) {
-		name_button.addEventListener("click", handleNameSubmit)
+		name_button.addEventListener("click", handleNameSubmit);
 	}
 
 })

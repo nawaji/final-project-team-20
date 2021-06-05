@@ -1,14 +1,5 @@
 {
-	"Jonathan": {
-		"score": 77
-	},
-	"Hyunjae": {
-		"score": 76
-	},
-	"Ansen": {
-		"score": 30
-	},
-	"Hiroto": {
-		"score": 25
-	},
+	"test": 50,
+	"hello": 40,
+	"world": 30
 }
