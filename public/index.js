@@ -5,6 +5,8 @@ function handleNameSubmit() {
 	var input = document.getElementById("username");
 	
 	if (input.value != "") {
+		
+
 		handleLeaderboards(input.value);
 		input.value = "";
 		hideModal();

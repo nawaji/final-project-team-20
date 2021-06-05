@@ -1,5 +1,14 @@
 {
-	"test": 50,
-	"hello": 40,
-	"world": 30
+	"Hiroto": {
+		"score": 53
+	},
+	"Ansen": {
+		"score": 52
+	},
+	"Hyunjae": {
+		"score": 51
+	},
+	"Jonathan": {
+		"score": 50
+	}
 }
