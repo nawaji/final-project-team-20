@@ -50,6 +50,7 @@ function handleLeaderboards(data) {
 //handles inserting new element into the DOM, whether its at a certain index or end of list
 function modifyLeaderboards(name, score, index) {
 	var lead_list = document.getElementById("leaderboard_list");
+	var lead_list_arr = lead_list.getElementsByTagName("li");
 	var new_str = name + ": " + score;
 
 	//create a new node to be inserted into the DOM
@@ -64,7 +65,8 @@ function modifyLeaderboards(name, score, index) {
 		lead_list.appendChild(new_ref);
 
 	} else {
-		lead_list.insertBefore(new_ref, lead_list_test[index]);
+
+		lead_list.insertBefore(new_ref, lead_list_arr[index]);
 
 	}
 }
