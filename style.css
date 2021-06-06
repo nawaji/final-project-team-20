@@ -226,17 +226,19 @@ header a{
 .modal_dialogue {
 
     margin: 200px auto;
+    background-color: #ffffff;
     z-index: -1;
     width: auto;
     max-width: 500px;
     min-width: 350px;
-    min-height: 200px;
+    min-height: 220px;
     border-radius: 20px;
 
 }
 
 .modal_header {
 
+    padding-top: 5px;
     margin: auto;
     text-align: center;
 
