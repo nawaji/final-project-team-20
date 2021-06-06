@@ -5,6 +5,7 @@
 
 var fs = require("fs")
 var express = require("express");
+var exphbs = require("express-handlebars");
 var user_data = require("./leaderboards.json");
 //var bodyParser = require("body-parser")
 
@@ -12,6 +13,9 @@ console.log(user_data);
 
 var app = express();
 var port = process.env.PORT || 3001;
+
+app.engine('handlebars', exphbs({defaultLayout: 'main'}))
+app.set('view engine', 'handlebars')
 
 //test
 
@@ -25,11 +29,18 @@ app.post("/leaderboards/addEntry", function(req, res) {
 	console.log("== user_data[" + person + "]:", user_data[person])
 })
 
+app.get(["/ttt", "/"], function (req, res, next) {
+	res.status(200).render('gamePage',{
 
-app.get("/ttt", function (req, res, next) {
-	res.status(200).sendFile(__dirname + '/public/index.html');
+
+	});
 })
 
+app.get('*', function (req, res, next) {
+
+	res.status(404).render ('404');
+
+})
 
 app.listen(port, function () {
 	console.log("== Server is listening on port", port);
