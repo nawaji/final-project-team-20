@@ -32,6 +32,7 @@ app.post("/leaderboards/addEntry", function(req, res) {
 app.get(["/ttt", "/"], function (req, res, next) {
 	res.status(200).render('gamePage',{
 
+		user_data
 
 	});
 })

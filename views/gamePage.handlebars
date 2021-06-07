@@ -29,11 +29,9 @@
         <div class = "score_header"><h2>Leaderboards</h2></div>
 
         <ol id = "leaderboard_list">
-            <!--NOTE: These are hardcoded test values. They should probably be changed -->
-            <li>Jonathan: 77</li>
-            <li>Hyunjae: 76</li>
-            <li>Ansen: 30</li>
-            <li>Hiroto: 25</li>
+            {{#each user_data}}
+                {{> leaderboard}}
+            {{/each}}
         </ol>
     </div>
 </div>
