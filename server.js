@@ -30,6 +30,19 @@ app.get("/ttt", function (req, res, next) {
 	res.status(200).sendFile(__dirname + '/public/index.html');
 })
 
+//Sort LeaderBoard
+var i;
+var j;
+var key;
+for(i = 0; i < user_data.length();i++){
+	key = user_data[i].score
+	for(j = i-1; j >= 0; j--){
+		if(user_data[j].score > key){
+			user_data[j+1] = user_data[j]
+		}
+	}
+	user_data[j+1].score = key
+}
 
 app.listen(port, function () {
 	console.log("== Server is listening on port", port);
