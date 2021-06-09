@@ -27,7 +27,8 @@ function handleNameSubmit() {
 		req.setRequestHeader('Content-Type', 'application/json')
 		req.send(reqBody)
 
-
+		handleLeaderboards(input.value);
+		input.value = "";
 		hideModal();
 	}
 }
@@ -121,4 +122,3 @@ window.addEventListener("DOMContentLoaded", function() {
 	}
 
 })
-
