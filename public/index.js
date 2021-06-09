@@ -15,14 +15,14 @@ function handleNameSubmit() {
 		alert("Please input a name!")
 	} else {
 		var req = new XMLHttpRequest()
-		var reqName = //'urlpath'
+		var reqName = "/user/add";
 		req.open('POST', reqName)
 
-		var name = {
-			name: name,
-			score: score
+		var person = {
+			name: input.value,
+			score: 1
 		}
-		var reqBody = JSON.stringify(name)
+		var reqBody = JSON.stringify(person)
 		console.log(" == reqBody:", reqBody)
 		req.setRequestHeader('Content-Type', 'application/json')
 		req.send(reqBody)
