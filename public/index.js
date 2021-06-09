@@ -4,14 +4,32 @@ function handleNameSubmit() {
 	var lead_list = document.getElementById("leaderboard_list");
 	var input = document.getElementById("username");
 	
-	if (input.value != "") {
-		
+//	if (input.value != "") {
+//		handleLeaderboards(input.value);
+//		input.value = "";
+//		hideModal();
+//	} else {
+//		alert("Please input a name!")
+//	}
+	if (!input){
+		alert("Please input a name!")
+	} else {
+		var req = new XMLHttpRequest()
+		var reqName = "/user/add";
+		req.open('POST', reqName)
+
+		var person = {
+			name: input.value,
+			score: 1
+		}
+		var reqBody = JSON.stringify(person)
+		console.log(" == reqBody:", reqBody)
+		req.setRequestHeader('Content-Type', 'application/json')
+		req.send(reqBody)
 
 		handleLeaderboards(input.value);
 		input.value = "";
 		hideModal();
-	} else {
-		alert("Please input a name!")
 	}
 }
 
@@ -104,4 +122,3 @@ window.addEventListener("DOMContentLoaded", function() {
 	}
 
 })
-
