@@ -5,9 +5,8 @@
 
 var fs = require("fs")
 var express = require("express");
-var user_data = require("./leaderboards.json");
+var user_data = require("./leaderboards");
 //var bodyParser = require("body-parser")
-
 console.log(user_data);
 
 var app = express();
@@ -19,10 +18,42 @@ var port = process.env.PORT || 3001;
 app.use(express.json())
 app.use(express.static('public'));
 
-app.post("/leaderboards/addEntry", function(req, res) {
+app.post("/leaderboards/addEntry", function(req, res, next) {
 	console.log("== req.body:", req.body)
-	res.status(200).send()
-	console.log("== user_data[" + person + "]:", user_data[person])
+	if (req.body && req.body.name && req.body.score) {
+		res.status(200).send()
+		user_data.player.push({
+			name: req.body.name,
+			score: req.body.score
+		})
+		console.log("== user_data[" + person + "]:", user_data[person])
+		fs.writeFile(
+			__dirname + '/leaderboards.json',
+			JSON.stringify(user_data, null, 2),
+			function (err){
+				if(err){
+					res.status(500).send("Error writing new data. Try again")
+				} else{
+					res.status(200).send()
+				}
+			}
+		)
+	} else {
+		res.status(400).send("Request needs a JSON obdy with 'name' and 'score'")
+	}
+})
+
+
+app.get('/user/:name/:score', function (req, res, next) {
+	var name = req.params.player.toLowerCase();
+	var score = (req.params.score);
+	if (user_data[player]){
+		res.status(200).render('')
+		name: 
+		score:
+	} else {
+		next();
+	}
 })
 
 

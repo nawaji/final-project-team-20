@@ -1,14 +1,20 @@
 {
-	"Hiroto": {
-		"score": 53
-	},
-	"Ansen": {
-		"score": 52
-	},
-	"Hyunjae": {
-		"score": 51
-	},
-	"Jonathan": {
-		"score": 50
-	}
+	"player": [
+		{
+			"name": "Hiroto",
+			"score": "20"
+		},
+		{
+			"name": "Ansen",
+			"score": "30"
+		},
+		{
+			"name": "Jonathan",
+			"score": "40"
+		},
+		{
+			"name": "Hyunjae",
+			"score": "50"
+		}
+	]
 }
