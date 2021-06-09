@@ -4,14 +4,31 @@ function handleNameSubmit() {
 	var lead_list = document.getElementById("leaderboard_list");
 	var input = document.getElementById("username");
 	
-	if (input.value != "") {
-		
-
-		handleLeaderboards(input.value);
-		input.value = "";
-		hideModal();
-	} else {
+//	if (input.value != "") {
+//		handleLeaderboards(input.value);
+//		input.value = "";
+//		hideModal();
+//	} else {
+//		alert("Please input a name!")
+//	}
+	if (!input){
 		alert("Please input a name!")
+	} else {
+		var req = new XMLHttpRequest()
+		var reqName = //'urlpath'
+		req.open('POST', reqName)
+
+		var name = {
+			name: name,
+			score: score
+		}
+		var reqBody = JSON.stringify(name)
+		console.log(" == reqBody:", reqBody)
+		req.setRequestHeader('Content-Type', 'application/json')
+		req.send(reqBody)
+
+
+		hideModal();
 	}
 }
 
