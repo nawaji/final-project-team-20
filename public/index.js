@@ -25,7 +25,6 @@ var cScore = 0
 start = Date.now()
 
 function Game(event){
-	
 	var trNumber = trs.indexOf(event.target.parentNode)
 	var tdNumber = tds[trNumber].indexOf(event.target)
 	
@@ -44,7 +43,10 @@ function Game(event){
 					tds[rand1][rand2].textContent = cTurn
 				}
 				else if(tds[rand1][rand2].textContent !== ''){
-					if(tds[0][0].textContent === ''){
+					if(tds[1][2].textContent === ''){
+						tds[1][2].textContent = cTurn
+					}
+					else if(tds[0][0].textContent === ''){
 						tds[0][0].textContent = cTurn
 					}
 					else if(tds[0][2].textContent === ''){
@@ -69,9 +71,7 @@ function Game(event){
 					else if(tds[2][1].textContent === ''){
 						tds[2][1].textContent = cTurn
 					}
-					else if(tds[1][2].textContent === ''){
-						tds[1][2].textContent = cTurn
-					}
+					
 				}
 				checkWin(trNumber, tdNumber)
 				// checkWinC()
@@ -83,13 +83,13 @@ function Game(event){
 				// checkWinC()
 			}
 		}
-		if(threeTd === true && cCheck === 0){
+		if(threeTd === true){
 			end = Date.now()
 			alert("You win the Game!")
 			showModal()
 			// location.reload()
 		}
-		else if(cCheck === 1 && threeTd === false){
+		else if(cCheck === 1){
 			end = Date.now()
 			alert("You Lose!")	
 			location.reload()		
@@ -199,10 +199,10 @@ for (var i = 0; i < 3; i += 1) {
         var td = document.createElement('td');
 
 		//Adds border elements to the generated game table
-		if (i == 1) { td.classList.add("no-top-border");}
-		else if (i == 3) { td.classList.add("no-bottom-border");}
-		if (j == 1) { td.classList.add("no-left-border");}
-		else if (j == 3) { td.classList.add("no-right-border");}
+		if (i == 0) { td.classList.add("no_top_border");}
+		else if (i == 2) { td.classList.add("no_bottom_border");}
+		if (j == 0) { td.classList.add("no_left_border");}
+		else if (j == 2) { td.classList.add("no_right_border");}
 
         td.addEventListener('click', Game);
         tds[i].push(td);
