@@ -47,7 +47,7 @@ app.post('/user/add', function (req, res, next) {
 		console.log("user found")
 
 		//update name/score if exists already
-		user_data[person.name].score++
+		user_data[person.name].score += person.score
 		sortUserData()
 
 		fs.writeFile(__dirname + "/leaderboards.json",
@@ -67,9 +67,9 @@ app.post('/user/add', function (req, res, next) {
 		console.log("new user")
 
 		user_data[person.name] = {
-			"score": 1
+			"score": person.score
 		}
-
+		sortUserData()
 		fs.writeFile(__dirname + "/leaderboards.json",
 			JSON.stringify(user_data, null, 2),
 		function (err) {
