@@ -26,8 +26,6 @@ start = Date.now()
 
 function Game(event){
 	
-
-	
 	var trNumber = trs.indexOf(event.target.parentNode)
 	var tdNumber = tds[trNumber].indexOf(event.target)
 	
@@ -106,7 +104,6 @@ console.log("==time: ",period)
 console.log("===Player: ",pScore)
 console.log("===CPU: ", cScore)
 }
-
 
 
 function checkWin(trNumber, tdNumber ){ 
@@ -196,10 +193,26 @@ for (var i = 0; i < 3; i += 1) {
     tds.push([]);
     for (var j = 0; j < 3; j += 1) {
         var td = document.createElement('td');
+
+		//Adds border elements to the generated game table
+		if (i == 1) { td.classList.add("no-top-border");}
+		else if (i == 3) { td.classList.add("no-bottom-border");}
+		if (j == 1) { td.classList.add("no-left-border");}
+		else if (j == 3) { td.classList.add("no-right-border");}
+
         td.addEventListener('click', Game);
         tds[i].push(td);
         tr.appendChild(td);
     }
     table.appendChild(tr);
 }
-body.appendChild(table)
+
+var main = document.createElement('main');
+main.classList.add('board_container');
+var board = document.createElement('div');
+board.classList.add('board');
+table.classList.add('game-grid');
+
+board.appendChild(table);
+main.appendChild(board);
+body.appendChild(main);

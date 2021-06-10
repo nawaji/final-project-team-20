@@ -155,10 +155,12 @@ function hideModal() {
 window.addEventListener("DOMContentLoaded", function() {
 
 	//temporary win condition by clicking any space on the board
+	/*
 	var temp_win_button = document.getElementsByClassName("board")[0];
 	if (temp_win_button) {
 		temp_win_button.addEventListener("click", showModal);
 	}
+	*/
 
 	//handles username input in the win modal
 	var name_button = document.getElementById("name_button");
