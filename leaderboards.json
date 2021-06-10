@@ -1,14 +1,26 @@
 {
-	"Hiroto": {
-		"score": 53
-	},
-	"Ansen": {
-		"score": 52
-	},
-	"Hyunjae": {
-		"score": 51
-	},
-	"Jonathan": {
-		"score": 50
-	}
+  "Ansen": {
+    "score": 92
+  },
+  "Hiroto": {
+    "score": 68
+  },
+  "Hyunjae": {
+    "score": 61
+  },
+  "Jonathan": {
+    "score": 60
+  },
+  "d": {
+    "score": 13
+  },
+  "f": {
+    "score": 13
+  },
+  "a": {
+    "score": 11
+  },
+  "eee": {
+    "score": 1
+  }
 }

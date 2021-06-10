@@ -6,6 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
+    "build": "handlebars views/partials/leaderboard.handlebars -f public/leaderboardTemplate.js",
     "dev": "nodemon server.js"
   },
   "repository": {
@@ -23,6 +24,8 @@
   },
   "dependencies": {
     "body-parser": "^1.19.0",
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "express-handlebars": "^5.3.2",
+    "handlebars": "^4.7.7"
   }
 }
