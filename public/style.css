@@ -120,25 +120,25 @@ td:hover {
 
 }
 
-.no-left-border {
+.no_left_border {
 
     border-left: none;
 
 }
 
-.no-top-border {
+.no_top_border {
 
     border-top: none;
 
 }
 
-.no-bottom-border {
+.no_bottom_border {
 
     border-bottom: none;
 
 }
 
-.no-right-border {
+.no_right_border {
 
     border-right: none;
 
