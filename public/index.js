@@ -7,6 +7,9 @@ function handleNameSubmit() {
 	if (!input){
 		alert("Please input a name!")
 	} else {
+
+		handleLeaderboards(input.value);
+
 		var req = new XMLHttpRequest()
 		var reqName = "/user/add";
 		req.open('POST', reqName)
@@ -20,89 +23,77 @@ function handleNameSubmit() {
 		req.setRequestHeader('Content-Type', 'application/json')
 		req.send(reqBody)
 
-		handleLeaderboards(input.value);
-		sortLeaderboards()
 		input.value = "";
 		hideModal();
 	}
 }
 
-//checks for duplicate name, updates if needed, otherwise creates new entry if new name
-function handleLeaderboards(data) {
+function handleLeaderboards(name) {
 	var separator = ": ";
 	var parent = document.getElementById("leaderboard_list")
 	var lead_list = parent.getElementsByTagName("li")
 
-	var i = 0;
-	var duplicate = false;
+	var unsorted_data = parseLeaderboards(name)
+	var sorted_data = sortLeaderboards(unsorted_data.name_arr, unsorted_data.score_arr)
 
-	//check each entry in the leaderboards for duplicate name
-	for (item of lead_list) {
-		let str = item.textContent
-		var name = str.split(separator)[0];
-		var score = str.split(separator)[1];
-		//console.log("== Person & Score:", name, score);
+	var name_arr = sorted_data.name_arr
+	var score_arr = sorted_data.score_arr
 
-		if (data == name) {
-			item.parentNode.removeChild(item);
-			duplicate = true;
-			console.log("== Duplicate found!");
-			score++;
-			modifyLeaderboards(name, score, i);
-			break;
-		}
+	//delete our leaderboards and reconstruct it
+    while (parent.lastChild) {
+      parent.removeChild(parent.lastChild);
+    }
 
-		i++;
+	for (i = 0; i < name_arr.length; i++) {
+		var new_ref = document.createElement("li")
+		var new_str = name_arr[i] + separator + score_arr[i].toString()
+		var content = document.createTextNode(new_str)
+
+		new_ref.appendChild(content)
+		parent.appendChild(new_ref)
 	}
 
-	//create new entry at the bottom of leaderboards
-	if (!duplicate) {
-		modifyLeaderboards(data, 1, -1);
-	}
 }
 
-//handles inserting new element into the DOM, whether its at a certain index or end of list
-function modifyLeaderboards(name, score, index) {
-	var lead_list = document.getElementById("leaderboard_list");
-	var lead_list_arr = lead_list.getElementsByTagName("li");
-	var new_str = name + ": " + score;
-
-	console.log("== list:", lead_list_arr[1])
-
-	//create a new node to be inserted into the DOM
-	var new_ref = document.createElement("li")
-	var temp_content = document.createTextNode(new_str)
-	new_ref.appendChild(temp_content)
-	console.log("== Node:", new_ref)
-
-	//if index < 0, append to end of list, otherwise insert before index
-	//and remove the original DOM element
-	if (index < 0) {
-		lead_list.appendChild(new_ref);
-
-	} else {
-
-		lead_list.insertBefore(new_ref, lead_list_arr[index]);
-
-	}
-}
-
-//TESTING SORT
-function sortLeaderboards() {
+function parseLeaderboards(name) {
 	var separator = ": ";
 	var parent = document.getElementById("leaderboard_list")
 	var lead_list = parent.getElementsByTagName("li")
 
 	var name_arr = []
 	var score_arr = []
-	var sorted = false
+	var dup = false;
 
+	//turn our leaderboards into two arrays for sorting
+	//check for duplicate name, increment score if found
 	for (entry of lead_list) {
 		let str = entry.textContent
-		name_arr.push(str.split(separator)[0])
-		score_arr.push(str.split(separator)[1])
+		var nm = str.split(separator)[0]
+		var num = parseInt(str.split(separator)[1])
+
+		name_arr.push(nm)
+		if (nm == name) {
+			dup = true;
+			num++
+		}
+		score_arr.push(num)
 	}
 
+	//push new entry to end of array if no duplicates
+	if (!dup) {
+		name_arr.push(name)
+		score_arr.push(1)
+	}
+
+	var out = {
+		name_arr,
+		score_arr
+	}
+	return out	
+}
+
+function sortLeaderboards(name_arr, score_arr) {
+	var sorted = false
 	while(!sorted) {
 		sorted = true;
 		for (i = 0; i < name_arr.length; i++) {
@@ -121,19 +112,11 @@ function sortLeaderboards() {
 		}
 	}
 
-    while (parent.lastChild) {
-      parent.removeChild(parent.lastChild);
-    }
-
-	for (i = 0; i < name_arr.length; i++) {
-		var new_ref = document.createElement("li")
-		var new_str = name_arr[i] + separator + score_arr[i]
-		console.log(new_str)
-		var content = document.createTextNode(new_str)
-		new_ref.appendChild(content)
-		parent.appendChild(new_ref)
+	var out = {
+		name_arr,
+		score_arr
 	}
-
+	return out
 }
 
 function showModal() {
