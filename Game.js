@@ -52,29 +52,28 @@ function Game(event){
 					else if(tds[0][2].textContent === ''){
 						tds[0][2].textContent = cTurn
 					}
-					else if(tds[0][1].textContent === ''){
-						tds[0][1].textContent = cTurn
-					}
-					
-					else if(tds[1][0].textContent === ''){
-						tds[1][0].textContent = cTurn
-					}
-					else if(tds[1][1].textContent === ''){
-						tds[1][1].textContent = cTurn
-					}
-					else if(tds[1][2].textContent === ''){
-						tds[1][2].textContent = cTurn
-					}
 					else if(tds[2][0].textContent === ''){
 						tds[2][0].textContent = cTurn
-					}
-					else if(tds[2][1].textContent === ''){
-						tds[2][1].textContent = cTurn
 					}
 					else if(tds[2][2].textContent === ''){
 						tds[2][2].textContent = cTurn
 					}	
-				
+					
+					else if(tds[1][0].textContent === ''){
+						tds[1][0].textContent = cTurn
+					}
+					else if(tds[0][1].textContent === ''){
+						tds[0][1].textContent = cTurn
+					}
+					else if(tds[1][1].textContent === ''){
+						tds[1][1].textContent = cTurn
+					}
+					else if(tds[2][1].textContent === ''){
+						tds[2][1].textContent = cTurn
+					}
+					else if(tds[1][2].textContent === ''){
+						tds[1][2].textContent = cTurn
+					}
 				}
 				checkWin(trNumber, tdNumber)
 				// checkWinC()
@@ -180,6 +179,7 @@ function calScore(){
 		else if(15 <= param && param < 25){pScore = 50 + digit}
 		else if(25 <= param && param < 30){pScore = 45 + digit}
 		else if(30 <= param && param < 77){pScore = 35 + sub}
+		// Jackpot!!!
 		else if(param === 77){pScore = 7700}
 		else{pScore = 10 + sub }
 
