@@ -20,9 +20,8 @@ function handleNameSubmit() {
 		req.setRequestHeader('Content-Type', 'application/json')
 		req.send(reqBody)
 
-		sortLeaderboards()
-		
 		handleLeaderboards(input.value);
+		sortLeaderboards()
 		input.value = "";
 		hideModal();
 	}
