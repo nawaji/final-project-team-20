@@ -1,15 +1,23 @@
 <!--This is the game board. Each button represents a square on a tic-tac-toe board.-->
 <main class = "board_container">
     <div class = "board">
-        <button id = "grid1" class = "square red">X</button>
-        <button id = "grid2" class = "square"></button>
-        <button id = "grid3" class = "square blue">O</button>
-        <button id = "grid4" class = "square"></button>
-        <button id = "grid5" class = "square blue">O</button>
-        <button id = "grid6" class = "square"></button>
-        <button id = "grid7" class = "square blue">O</button>
-        <button id = "grid8" class = "square"></button>
-        <button id = "grid9" class = "square red">X</button>
+        <table class = "game-grid">
+            <tr>
+                <td class = "no-left-border no-top-border"> </td>
+                <td class = "no-top-border"> </td>
+                <td class = "no-right-border no-top-border"> </td>
+            </tr>
+            <tr>
+                <td class = "no-left-border"> </td>
+                <td> </td>
+                <td class = "no-right-border"> </td>
+            </tr>
+            <tr>
+                <td class = "no-left-border no-bottom-border"> </td>
+                <td class = "no-bottom-border"> </td>
+                <td class = "no-right-border no-bottom-border"> </td>
+            </tr>
+        </table>
     </div>
 </main>
 
