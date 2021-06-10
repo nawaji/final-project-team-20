@@ -1,0 +1,20 @@
+{
+	"player": [
+		{
+			"name": "Hiroto",
+			"score": "20"
+		},
+		{
+			"name": "Ansen",
+			"score": "30"
+		},
+		{
+			"name": "Jonathan",
+			"score": "40"
+		},
+		{
+			"name": "Hyunjae",
+			"score": "50"
+		}
+	]
+}
