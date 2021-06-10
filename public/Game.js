@@ -194,11 +194,13 @@ for (var i = 0; i < 3; i += 1) {
     for (var j = 0; j < 3; j += 1) {
         var td = document.createElement('td');
 
+		console.log("==j", j)
+
 		//Adds border elements to the generated game table
-		if (i == 1) { td.classList.add("no-top-border");}
-		else if (i == 3) { td.classList.add("no-bottom-border");}
-		if (j == 1) { td.classList.add("no-left-border");}
-		else if (j == 3) { td.classList.add("no-right-border");}
+		if (i == 0) { td.classList.add("no_top_border");}
+		else if (i == 2) { td.classList.add("no_bottom_border");}
+		if (j == 0) { td.classList.add("no_left_border");}
+		else if (j == 2) { td.classList.add("no_right_border");}
 
         td.addEventListener('click', Game);
         tds[i].push(td);
@@ -207,6 +209,8 @@ for (var i = 0; i < 3; i += 1) {
     table.appendChild(tr);
 }
 
+
+//These elements are necessary to have proper formatting from style.css.
 var main = document.createElement('main');
 main.classList.add('board_container');
 var board = document.createElement('div');
