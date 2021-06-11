@@ -221,10 +221,17 @@ td:hover {
     border-left: 3px solid black;
 }
 
-.player_score_container {
+.player_score_container  {
 
     margin: 10px;
     position: relative;
+
+}
+
+.player_score_container ul {
+
+    list-style-type: none;
+    line-height: 1.7;
 
 }
 

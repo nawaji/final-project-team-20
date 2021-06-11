@@ -176,7 +176,8 @@ function checkDraw(){
 }
 
 function calScore(){
-	
+	param = period / 100
+
 	// when the player wins
 	if(threeTd === true){
 		if(param > 0 && param < 10){pScore = 1000}
