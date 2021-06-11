@@ -170,19 +170,17 @@ function checkDraw(){
 }
 
 function calScore(){
-	param = period/100
-	digit = period/1000
-	sub = digit%5
+	
 	// when the player wins
 	if(threeTd === true){
-		if(param > 0 && param < 10){pScore = 1000 + period}
-		else if(10 <=param && param < 15){pScore = 60 + digit.toFixed(2)}
-		else if(15 <= param && param < 25){pScore = 50 + digit.toFixed(2)}
-		else if(25 <= param && param < 30){pScore = 45 + digit.toFixed(2)}
-		else if(30 <= param && param < 77){pScore = 35 + sub.toFixed(2)}
+		if(param > 0 && param < 10){pScore = 1000}
+		else if(10 <=param && param < 15){pScore = 60}
+		else if(15 <= param && param < 25){pScore = 50}
+		else if(25 <= param && param < 30){pScore = 45}
+		else if(30 <= param && param < 77){pScore = 35}
 		// Jackpot!!!
 		else if(param === 77){pScore = 7700}
-		else{pScore = 10 + sub }
+		else{pScore = 10}
 
 	}
 	else if(dCheck === 1){pScore = 3}
