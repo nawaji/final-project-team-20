@@ -12,6 +12,8 @@ var threeTd = false
 var cCheck = 0
 var dCheck = 0
 
+var firstTurn = false;
+
 var start
 var end
 var period
@@ -22,7 +24,7 @@ var sub
 var pScore = 0
 var cScore = 0
 
-start = Date.now()
+//start = Date.now()
 
 function Game(event){
 	var trNumber = trs.indexOf(event.target.parentNode)
@@ -36,7 +38,11 @@ function Game(event){
 	        turn = cTurn
 
 			if(turn === cTurn){
-				
+				if (!firstTurn) {
+					firstTurn = true
+					start = Date.now()
+				}
+
 				var rand1 = Math.floor(Math.random()*3)
 				var rand2 = Math.floor(Math.random()*3)
 				if(tds[rand1][rand2].textContent === ''){
