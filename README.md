@@ -1,10 +1,15 @@
 # Contributors
 
 CS 290 Final project forked from https://github.com/osu-cs290-sp21/final-project-team-20 incase.
+
 https://github.com/nawaji
+
 https://github.com/HyunJ-OregonState
+
 https://github.com/ansengarvin
+
 https://github.com/hiroto-kazama
+
 
 # TicTacToe
 
